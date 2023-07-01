@@ -35,7 +35,7 @@ namespace BeatSaberModManager.Services.Implementations.ProtocolHandlerRegistrars
             using StreamReader streamReader = new(fileStream);
             while (streamReader.ReadLine() is { } line)
             {
-                if (line.StartsWith($"Exec={Environment.ProcessPath}", StringComparison.Ordinal))
+                if (line.StartsWith($"Exec={Application.ExecutablePath}", StringComparison.Ordinal))
                     return true;
             }
 
@@ -72,7 +72,7 @@ Name={ThisAssembly.Info.Product}
 Comment=URL:{protocol} Protocol
 Type=Application
 Categories=Utility
-Exec={Environment.ProcessPath} --install %u
+Exec={Application.ExecutablePath} --install %u
 Terminal=false
 NoDisplay=true
 MimeType=x-scheme-handler/{protocol}
